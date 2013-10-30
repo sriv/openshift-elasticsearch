@@ -232,6 +232,10 @@ http.port: ${OPENSHIFT_DIY_PORT}
 #
 # http.enabled: false
 
+#enable basic auth
+http.basic.enabled: ${SEARCH_AUTH_ENABLED}
+http.basic.user: ${SEARCH_USERNAME}
+http.basic.password: ${SEARCH_PASSWORD}
 
 ################################### Gateway ###################################
 

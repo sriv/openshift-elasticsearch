@@ -7,8 +7,9 @@
 
 ELASTICSEARCH_VERSION='0.90.5'
 ELASTICSEARCH_NAME="elasticsearch-${ELASTICSEARCH_VERSION}"
+ELASTICSEARCH_BASICAUTH_VERSION="1.0.3"
 ELASTICSEARCH_URL="https://download.elasticsearch.org/elasticsearch/elasticsearch/${ELASTICSEARCH_NAME}.tar.gz"
-ELASTICSEARCH_BASIC_AUTH_PLUGIN_URL="https://github.com/downloads/Asquera/elasticsearch-http-basic/elasticsearch-http-basic-1.0.3.jar"
+ELASTICSEARCH_BASIC_AUTH_PLUGIN_URL="https://github.com/downloads/Asquera/elasticsearch-http-basic/elasticsearch-http-basic-${ELASTICSEARCH_BASICAUTH_VERSION}.jar"
 
 INSTALL_DIR=${OPENSHIFT_HOMEDIR}/app-root/runtime
 TEMPLATES_DIR=${OPENSHIFT_REPO_DIR}/.openshift/templates

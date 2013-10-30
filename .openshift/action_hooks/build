@@ -5,7 +5,7 @@
 # could be python, php, ruby, etc.
 
 
-ELASTICSEARCH_VERSION='0.90.1'
+ELASTICSEARCH_VERSION='0.90.5'
 ELASTICSEARCH_NAME="elasticsearch-${ELASTICSEARCH_VERSION}"
 ELASTICSEARCH_URL="https://download.elasticsearch.org/elasticsearch/elasticsearch/${ELASTICSEARCH_NAME}.tar.gz"
 

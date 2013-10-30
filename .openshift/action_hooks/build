@@ -25,8 +25,6 @@ function build_elasticsearch()
 	mkdir -p ${INSTALL_DIR}/elasticsearch/run/
 
 	rm ${ELASTICSEARCH_NAME}.tar.gz
-	
-	install_elasticsearch_basic_auth
 }
 
 function install_elasticsearch_basic_auth()
@@ -43,6 +41,7 @@ function check_and_install_elasticsearch()
 {
 	if [[ ! -e ${INSTALL_DIR}/elasticsearch/bin/elasticsearch ]]; then
 		build_elasticsearch
+		install_elasticsearch_basic_auth
 	fi
 }
 

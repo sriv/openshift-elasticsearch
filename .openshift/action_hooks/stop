@@ -5,4 +5,7 @@ INSTALL_DIR=${OPENSHIFT_HOMEDIR}/app-root/runtime
 
 echo "Stopping elasticsearch."
 kill -QUIT `cat ${INSTALL_DIR}/elasticsearch/run/elasticsearch.pid`
+
+echo "Stopping nginx."
+kill -QUIT `cat ${INSTALL_DIR}/nginx/run/nginx.pid`
 exit 0

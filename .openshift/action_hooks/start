@@ -10,3 +10,8 @@ cp ${TEMPLATES_DIR}/elasticsearch.yml ${INSTALL_DIR}/elasticsearch/config/elasti
 
 echo "Starting elasticsearch."
 nohup ${INSTALL_DIR}/elasticsearch/bin/elasticsearch -p ${INSTALL_DIR}/elasticsearch/run/elasticsearch.pid
+
+erb ${TEMPLATES_DIR}/nginx.conf.erb > ${INSTALL_DIR}/nginx/conf/nginx.conf
+
+echo "Starting nginx."
+nohup ${INSTALL_DIR}/nginx/sbin/nginx > ${INSTALL_DIR}/nginx/logs/server.log 2>&1 &

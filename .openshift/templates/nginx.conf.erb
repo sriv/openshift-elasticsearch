@@ -1,0 +1,62 @@
+#user  nobody;
+worker_processes  1;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+pid run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+    keepalive_timeout  65;
+
+    gzip  on;
+
+    server {
+        listen       <%= ENV['OPENSHIFT_DIY_IP'] %>:<%= ENV['OPENSHIFT_DIY_PORT'] %>;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+
+            ## Taken from Karmi's Gist - https://gist.github.com/karmi/986390
+
+            # Deny access to Cluster API
+            if ($request_filename ~ "_cluster") {
+            return 403;
+            break;
+            }
+             
+            # Pass requests to ElasticSearch
+            proxy_pass http://<%= ENV['OPENSHIFT_DIY_IP']%>:9200;
+            proxy_redirect off;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+             
+            # Authorize access
+            auth_basic "Restricted";
+            # Create a htpasswd file on server
+            auth_basic_user_file <%= File.join ENV['OPENSHIFT_DATA_DIR'], "htpasswd", "password" %>;
+             
+            # Route all requests to authorized user's own index
+            rewrite ^(.*)$ /$remote_user$1 break;
+            rewrite_log on;
+             
+            return 403;
+        }
+    }
+}

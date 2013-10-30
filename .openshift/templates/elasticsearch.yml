@@ -222,7 +222,6 @@ transport.tcp.port: 3306
 # Set a custom port to listen for HTTP traffic:
 #
 # http.port: 9200
-http.port: ${OPENSHIFT_DIY_PORT}
 
 # Set a custom allowed content length:
 #
@@ -231,11 +230,6 @@ http.port: ${OPENSHIFT_DIY_PORT}
 # Disable HTTP completely:
 #
 # http.enabled: false
-
-#enable basic auth
-http.basic.enabled: ${SEARCH_AUTH_ENABLED}
-http.basic.user: ${SEARCH_USERNAME}
-http.basic.password: ${SEARCH_PASSWORD}
 
 ################################### Gateway ###################################
 

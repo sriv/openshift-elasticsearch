@@ -51,12 +51,6 @@ http {
             auth_basic "Restricted";
             # Create a htpasswd file on server
             auth_basic_user_file <%= File.join ENV['OPENSHIFT_DATA_DIR'], "htpasswd", "password" %>;
-             
-            # Route all requests to authorized user's own index
-            rewrite ^(.*)$ /$remote_user$1 break;
-            rewrite_log on;
-             
-            return 403;
         }
     }
 }

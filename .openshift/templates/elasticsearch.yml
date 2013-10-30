@@ -208,7 +208,7 @@
 # Set both 'bind_host' and 'publish_host':
 #
 # network.host: 192.168.0.1
-network.host: ${OPENSHIFT_INTERNAL_IP}
+network.host: ${OPENSHIFT_DIY_IP}
 
 # Set a custom port for the node to node communication (9300 by default):
 #
@@ -222,7 +222,7 @@ transport.tcp.port: 3306
 # Set a custom port to listen for HTTP traffic:
 #
 # http.port: 9200
-http.port: ${OPENSHIFT_INTERNAL_PORT}
+http.port: ${OPENSHIFT_DIY_PORT}
 
 # Set a custom allowed content length:
 #

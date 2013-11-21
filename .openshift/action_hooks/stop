@@ -4,8 +4,8 @@
 INSTALL_DIR=${OPENSHIFT_HOMEDIR}/app-root/runtime
 
 echo "Stopping elasticsearch."
-kill -9 `cat ${INSTALL_DIR}/elasticsearch/run/elasticsearch.pid`
+pgrep -f elastic | xargs kill -9 $1
 
 echo "Stopping nginx."
-kill -9 `cat ${INSTALL_DIR}/nginx/run/nginx.pid`
+pgrep -f nginx | xargs kill -9 $1
 exit 0

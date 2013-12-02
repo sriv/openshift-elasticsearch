@@ -66,6 +66,9 @@ function build_elasticsearch()
 	wget ${ELASTICSEARCH_URL}
 	tar xvf ${ELASTICSEARCH_NAME}.tar.gz
 	mv ${ELASTICSEARCH_NAME} elasticsearch
+	
+	echo "installing elastic-head"
+	elasticsearch/bin/plugin -install mobz/elasticsearch-head
 
 	mkdir -p ${INSTALL_DIR}/elasticsearch/run/
 

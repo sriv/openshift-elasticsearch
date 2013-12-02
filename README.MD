@@ -1,4 +1,4 @@
-openshift-teamcity
+openshift-elasticsearch
 ==================
 
 This is a DIY cartridge for setting up ElasticSearch (currently 0.90.7) on Openshift.

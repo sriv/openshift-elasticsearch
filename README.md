@@ -13,19 +13,12 @@ This is a DIY cartridge for setting up ElasticSearch (currently 0.90.7) on Opens
 
 
 ####Setup a new Teamcity application
-    rhc app create <instance name> diy-0.1 --from-code=git://github.com/sriv/openshift-elasticsearch.git 
+    rhc app create <instance> diy-0.1 --from-code=git://github.com/sriv/openshift-elasticsearch.git -e SEARCH_USERNAME=<username> -e SEARCH_PASSWORD=<password>
 
-###Setting up Authentication for NGinx
+Here,
+- `<instance.` is the name of the application that you'd like
+- `<username>` and `<password>` are the credentials that you'd like to setup.
 
-    # SSH into the server
-    rhc ssh -a <app name>
-    
-    cd $OPENSHIFT_DATA_DIR
-    # will cd into /var/lib/openshift/<<app id>>/app-root/data
-    mkdir -p htpasswd
-    
-    #Create a new password on the server
-    htpasswd -c password <username>
-    # Enter password and confirmation in prompt
-    
-This step is required to setup authentication for the search instance using Nginx.
+###Authentication on NGinx
+
+This cartridge sets up an Nginx instance, with elasticsearch bound as one upstream. It uses basic auth for this. The username and password are setup using `htpasswd`

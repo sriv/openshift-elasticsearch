@@ -49,6 +49,7 @@ function build_nginx()
 
         mkdir -p ${OPENSHIFT_DATA_DIR}/htpasswd
         cd ${OPENSHIFT_DATA_DIR}/htpasswd
+        echo "creating htpasswd for ${SEARCH_USERNAME}"
         htpasswd -b -c password ${SEARCH_USERNAME} ${SEARCH_PASSWORD}
 }
 

@@ -31,3 +31,7 @@ The url then looks like `http://bar-foo.rhcloud.com`.
 ###Authentication on NGinx
 
 This cartridge sets up an Nginx instance, with elasticsearch bound as one upstream. It uses basic auth for this. The username and password are setup using `htpasswd`
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sriv/openshift-elasticsearch/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+

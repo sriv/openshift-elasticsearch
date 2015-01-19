@@ -4,7 +4,7 @@
 # before the deploy step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
 
-PCRE_VERSION='8.33'
+PCRE_VERSION='8.35'
 NGINX_VERSION='1.4.1'
 
 PCRE_NAME="pcre-${PCRE_VERSION}"
